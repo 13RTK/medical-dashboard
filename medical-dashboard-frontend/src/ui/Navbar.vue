@@ -1,9 +1,13 @@
 <template>
   <div class="navbar bg-[#63C7B3]">
-    <div class="navbar-start">
+    <div class="navbar-start w-fit">
       <!-- dropdown when the width less then the lg -->
       <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <div
+          tabindex="0"
+          role="button"
+          class="btn btn-ghost lg:hidden text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -23,44 +27,67 @@
           tabindex="0"
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li><a>责任医师</a></li>
           <li>
-            <a>Parent</a>
-            <ul class="p-2">
-              <li><a>Submenu 1</a></li>
-              <li><a>Submenu 2</a></li>
-            </ul>
+            <div class="text-white">责任医师</div>
           </li>
-          <li><a>Item 3</a></li>
+          <li>
+            <a class="text-white">护士交班</a>
+          </li>
+          <li>
+            <a class="text-white">病区排班</a>
+          </li>
+          <li>
+            <a class="text-white">输液管理</a>
+          </li>
+          <li>
+            <a class="text-white">病区一览</a>
+          </li>
+          <li>
+            <a class="text-white">今日概况</a>
+          </li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-xl">福康护理白板</a>
+      <a class="btn btn-ghost text-xl text-white">福康护理白板</a>
     </div>
-    <div class="navbar-center hidden lg:flex">
+    <div class="navbar-center hidden lg:flex mx-auto">
       <ul class="menu menu-horizontal px-1">
         <li>
-          <router-link :to="{ name: 'home' }">责任医师</router-link>
+          <router-link :to="{ name: 'home' }" class="text-white"
+            >责任医师</router-link
+          >
         </li>
         <li>
-          <router-link :to="{ name: 'nurse' }">护士交班</router-link>
+          <router-link :to="{ name: 'nurse' }" class="text-white"
+            >护士交班</router-link
+          >
         </li>
         <li>
-          <router-link :to="{ name: 'schedule' }">病区排班</router-link>
+          <router-link :to="{ name: 'schedule' }" class="text-white"
+            >病区排班</router-link
+          >
         </li>
         <li>
-          <router-link :to="{ name: 'transfuse' }">输液管理</router-link>
+          <router-link :to="{ name: 'transfuse' }" class="text-white"
+            >输液管理</router-link
+          >
         </li>
         <li>
-          <router-link :to="{ name: 'ward' }">病区一览</router-link>
+          <router-link :to="{ name: 'ward' }" class="text-white"
+            >病区一览</router-link
+          >
         </li>
         <li>
-          <router-link :to="{ name: 'overview' }">今日概况</router-link>
+          <router-link :to="{ name: 'overview' }" class="text-white"
+            >今日概况</router-link
+          >
         </li>
       </ul>
     </div>
 
-    <div class="navbar-end sm:block hidden">{{ currentDateTime }}</div>
-    <div class="navbar-end">
+    <div class="navbar-end sm:inline-block hidden text-white w-fit ml-auto">
+      {{ currentDateTime }}
+    </div>
+    <div class="navbar-end w-fit inline-block ml-auto">
       <a class="btn bg-[#63C7B3]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,14 +105,15 @@
 </template>
 
 <script setup>
+import { getCurrentLocaleString } from "@/utils/timeHelper";
 import { ref, onMounted, onUnmounted } from "vue";
 
-const currentDateTime = ref(new Date().toLocaleString("zh-CN"));
+const currentDateTime = ref(getCurrentLocaleString());
 let timeInterval;
 
 onMounted(() => {
   timeInterval = setInterval(() => {
-    currentDateTime.value = new Date().toLocaleString("zh-CN");
+    currentDateTime.value = getCurrentLocaleString();
   }, 1000);
 });
 
