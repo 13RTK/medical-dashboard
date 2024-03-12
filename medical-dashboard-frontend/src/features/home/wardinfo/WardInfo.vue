@@ -1,7 +1,7 @@
 <template>
   <div>
     <table class="table table-pin-rows">
-      <Spinner v-if="isLoading" />
+      <Spinner v-if="isLoading || !basicItemData" />
       <tbody v-else="!isLoading">
         <WardInfoRow :wardInfos="basicItemData" />
       </tbody>
@@ -9,15 +9,15 @@
   </div>
 </template>
 
-<script setup>
-import WardInfoRow from "./WardInfoRow.vue";
+<script setup lang="ts">
+import WardInfoRow from './WardInfoRow.vue';
 
-import Spinner from "@/ui/Spinner.vue";
-import { useBasicItem } from "./useBasicItem";
+import Spinner from '@/ui/Spinner.vue';
+import { useBasicItem } from './useBasicItem';
 
-const props = defineProps({
-  currentItem: String,
-});
+const props = defineProps<{
+  currentItem: String;
+}>();
 
-const { basicItemData, isLoading, error } = useBasicItem();
+const { basicItemData, isLoading } = useBasicItem(props.currentItem as string);
 </script>

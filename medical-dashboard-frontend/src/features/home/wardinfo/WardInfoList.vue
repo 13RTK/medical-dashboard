@@ -38,36 +38,15 @@
   </tr>
 </template>
 
-<script setup>
-import { useWardInfo } from "./useWardInfo";
+<script setup lang="ts">
+import { useWardInfo } from './useWardInfo';
 
-const props = defineProps({
-  wardInfo: {
-    type: Object,
-  },
-});
+import type BasicItem from '@/types/BasicItem';
+
+const props = defineProps<{
+  wardInfo: BasicItem;
+}>();
 
 const { page, pageCount, currentWardInfo, handlePrevPage, handleNextPage } =
   useWardInfo(props.wardInfo);
-
-// const page = ref(1);
-// const pageCount = computed(() => {
-//   return Math.ceil(props.wardInfo.wards.length / 8);
-// });
-
-// const currentWardInfo = computed(() => {
-//   return props.wardInfo.wards.slice((page.value - 1) * 8, page.value * 8);
-// });
-
-// function handlePrevPage() {
-//   if (page.value > 1) {
-//     page.value--;
-//   }
-// }
-
-// function handleNextPage() {
-//   if (page.value < pageCount.value) {
-//     page.value++;
-//   }
-// }
 </script>

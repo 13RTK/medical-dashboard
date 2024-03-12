@@ -1,15 +1,16 @@
 <template>
   <WardInfoList
-    v-for="wardInfo in wardInfos.data"
+    v-for="wardInfo in wardInfos.basicItems"
     :key="wardInfo.head"
     :wardInfo="wardInfo"
   />
 </template>
 
-<script setup>
-import WardInfoList from "./WardInfoList.vue";
+<script setup lang="ts">
+import WardInfoList from './WardInfoList.vue';
+import BasicInfo from '@/types/BasicInfo';
 
-defineProps({
-  wardInfos: Object,
-});
+defineProps<{
+  wardInfos: BasicInfo;
+}>();
 </script>

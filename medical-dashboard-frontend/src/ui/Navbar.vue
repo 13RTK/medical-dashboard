@@ -125,20 +125,20 @@
   </div>
 </template>
 
-<script setup>
-import { getCurrentLocaleString } from "@/utils/timeHelper";
-import { ref, onMounted, onUnmounted } from "vue";
-import { useRoute } from "vue-router";
+<script setup lang="ts">
+import { getCurrentLocaleString } from '@/utils/timeHelper';
+import { ref, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const currentDateTime = ref(getCurrentLocaleString());
 const currentRoute = ref(route.name);
 
-const handleChangeRoute = (value) => {
+const handleChangeRoute = (value: string) => {
   currentRoute.value = value;
 };
 
-let timeInterval;
+let timeInterval: NodeJS.Timeout;
 onMounted(() => {
   timeInterval = setInterval(() => {
     currentDateTime.value = getCurrentLocaleString();

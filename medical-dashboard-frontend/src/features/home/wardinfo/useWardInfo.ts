@@ -1,16 +1,20 @@
+import type BasicItem from '@/types/BasicItem';
+import type WardItem from '@/types/WardItem';
 import { getViteConfig } from '@/utils/configHelper';
-import { ref, computed } from 'vue';
+import { ref, type Ref, computed } from 'vue';
 
 const PAGE_SIZE = Number(getViteConfig('PAGE_SIZE'));
 
-export const useWardInfo = (wardInfo) => {
-  const page = ref(1);
-  const pageCount = computed(() => {
+export const useWardInfo = (wardInfo: BasicItem) => {
+  const page: Ref<number> = ref(1);
+  const pageCount = computed<number>(() => {
     return Math.ceil(wardInfo.wards.length / PAGE_SIZE);
   });
 
-  const currentWardInfo = computed(() => {
-    return wardInfo.wards.slice(
+  const currentWardInfo = computed<WardItem[]>(() => {
+    const wardItems: WardItem[] = wardInfo.wards;
+
+    return wardItems.slice(
       (page.value - 1) * PAGE_SIZE,
       page.value * PAGE_SIZE
     );

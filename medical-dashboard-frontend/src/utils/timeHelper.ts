@@ -1,4 +1,4 @@
-export const getCurrentLocaleString = () => {
+export const getCurrentLocaleString = (): string => {
   return new Date().toLocaleString('zh-CN', {
     year: 'numeric',
     month: '2-digit',

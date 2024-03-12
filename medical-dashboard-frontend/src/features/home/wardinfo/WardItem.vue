@@ -11,10 +11,10 @@
   </li>
 </template>
 
-<script setup>
-const props = defineProps({
-  items: Array,
-  currentItem: String,
-  onChangeItem: Function,
-});
+<script setup lang="ts">
+defineProps<{
+  items: string[];
+  currentItem: string;
+  onChangeItem: (item: string) => void;
+}>();
 </script>

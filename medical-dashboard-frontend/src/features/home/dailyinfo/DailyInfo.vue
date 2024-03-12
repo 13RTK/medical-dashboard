@@ -17,9 +17,9 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  infoTitle: String,
-  dailyInfoList: Array,
-});
+<script setup lang="ts">
+defineProps<{
+  infoTitle: string;
+  dailyInfoList: string[];
+}>();
 </script>

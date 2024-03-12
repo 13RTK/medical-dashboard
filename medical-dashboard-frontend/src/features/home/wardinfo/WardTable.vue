@@ -14,23 +14,25 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from "vue";
-import { useRouter, useRoute } from "vue-router";
+<script setup lang="ts">
+import { ref, type Ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
-import WardItem from "./WardItem.vue";
-import WardInfo from "./WardInfo.vue";
+import WardItem from './WardItem.vue';
+import WardInfo from './WardInfo.vue';
 
 const route = useRoute();
-const items = ref(["血压", "血糖", "雾化", "体温"]);
-const currentItem = ref(route.query.basicItem || items.value[0]);
+const items: Ref<string[]> = ref(['血压', '血糖', '雾化', '体温']);
+const currentItem: Ref<string> = ref(
+  (route.query.basicItem as string) || items.value[0]
+);
 const router = useRouter();
 
-function handleChangeItem(newItem) {
+function handleChangeItem(newItem: string): void {
   currentItem.value = newItem;
 
   router.push({
-    name: "home",
+    name: 'home',
     query: {
       basicItem: newItem,
     },
@@ -39,7 +41,7 @@ function handleChangeItem(newItem) {
 
 onMounted(() => {
   router.push({
-    name: "home",
+    name: 'home',
     query: {
       basicItem: items.value[0],
     },

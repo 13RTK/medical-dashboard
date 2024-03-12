@@ -20,7 +20,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import WardTable from '@/features/home/wardinfo/WardTable.vue';
 import DailyTable from '@/features/home/dailyinfo/DailyTable.vue';
 </script>

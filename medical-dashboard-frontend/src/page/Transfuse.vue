@@ -2,6 +2,6 @@
   <TransfuseTable />
 </template>
 
-<script setup>
-import TransfuseTable from "@/features/transfuse/TransfuseTable.vue";
+<script setup lang="ts">
+import TransfuseTable from '@/features/transfuse/TransfuseTable.vue';
 </script>

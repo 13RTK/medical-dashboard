@@ -5,9 +5,9 @@
   <StuffInfo />
 </template>
 
-<script setup>
-import DoctorInfo from "./DoctorInfo.vue";
-import NurseInfo from "./NurseInfo.vue";
-import WardInfo from "./WardInfo.vue";
-import StuffInfo from "./StuffInfo.vue";
+<script setup lang="ts">
+import DoctorInfo from './DoctorInfo.vue';
+import NurseInfo from './NurseInfo.vue';
+import WardInfo from './WardInfo.vue';
+import StuffInfo from './StuffInfo.vue';
 </script>

@@ -1,7 +1,9 @@
 import { faker } from '@faker-js/faker';
+import type BasicItem from '../types/BasicItem';
+import type BasicInfo from '../types/BasicInfo';
 
-function random_chinese_name() {
-  function random(a, l) {
+function random_chinese_name(): string {
+  function random(a: string[], l: number = 0): string {
     const x = [];
     x.push(a[Math.ceil(Math.random() * a.length)]);
     while (l > 1) {
@@ -26,14 +28,14 @@ function random_chinese_name() {
   );
 }
 
-const getFakeNumber = (min, max) => {
+const getFakeNumber = (min: number, max: number) => {
   return faker.number.int({ min, max });
 };
 
-const getFakeWard = () => {
+const getFakeWard = (): { wardNum: number; firstName: string }[] => {
   return new Array(getFakeNumber(5, 20)).fill('').map(() => {
-    const wardNum = getFakeNumber(1, 99);
-    const firstName = random_chinese_name()[0];
+    const wardNum: number = getFakeNumber(1, 99);
+    const firstName: string = random_chinese_name()[0];
 
     return {
       wardNum,
@@ -42,8 +44,8 @@ const getFakeWard = () => {
   });
 };
 
-export const getFakeBasicItem = (item) => {
-  const dataArr = [
+export const getFakeBasicItem = (item: string): BasicInfo => {
+  const dataArr: BasicItem[] = [
     { head: '2/日', wards: getFakeWard() },
     { head: '3/日', wards: getFakeWard() },
     { head: '4/日', wards: getFakeWard() },
@@ -53,6 +55,6 @@ export const getFakeBasicItem = (item) => {
 
   return {
     item,
-    data: dataArr,
+    basicItems: dataArr,
   };
 };
