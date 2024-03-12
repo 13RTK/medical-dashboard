@@ -1,7 +1,7 @@
-import { getViteConfig } from "@/utils/configHelper";
-import { ref, computed } from "vue";
+import { getViteConfig } from '@/utils/configHelper';
+import { ref, computed } from 'vue';
 
-const PAGE_SIZE = Number(getViteConfig("PAGE_SIZE"));
+const PAGE_SIZE = Number(getViteConfig('PAGE_SIZE'));
 
 export const useWardInfo = (wardInfo) => {
   const page = ref(1);

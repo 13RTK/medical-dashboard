@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@kalimahapps/vue-icons": "^1.4.0",
     "@tanstack/vue-query": "^5.25.0",
     "@tanstack/vue-query-devtools": "^5.25.0",
     "pinia": "^2.1.7",
