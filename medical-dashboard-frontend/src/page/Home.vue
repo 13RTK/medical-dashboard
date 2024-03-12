@@ -8,7 +8,9 @@
 
       <!-- Overview info -->
       <div class="bg-red-400 grid-cols-2 grid">
-        <div class="bg-purple-400 col-span-1">overview</div>
+        <div class="bg-purple-400 col-span-1">
+          <OverviewTable />
+        </div>
         <div class="bg-blue-400 col-span-1">options</div>
       </div>
     </div>
@@ -23,4 +25,5 @@
 <script setup lang="ts">
 import WardTable from '@/features/home/wardinfo/WardTable.vue';
 import DailyTable from '@/features/home/dailyinfo/DailyTable.vue';
+import OverviewTable from '@/features/home/overview/OverviewTable.vue';
 </script>

@@ -55,7 +55,6 @@
           <router-link
             :to="{ name: 'home' }"
             :class="`text-white ${currentRoute === 'home' ? 'active' : ''}`"
-            @click="handleChangeRoute('home')"
           >
             责任医师</router-link
           >
@@ -64,7 +63,6 @@
           <router-link
             :to="{ name: 'nurse' }"
             :class="`text-white ${currentRoute === 'nurse' ? 'active' : ''}`"
-            @click="handleChangeRoute('nurse')"
             >护士交班</router-link
           >
         </li>
@@ -72,7 +70,6 @@
           <router-link
             :to="{ name: 'schedule' }"
             :class="`text-white ${currentRoute === 'schedule' ? 'active' : ''}`"
-            @click="handleChangeRoute('schedule')"
             >病区排班</router-link
           >
         </li>
@@ -82,7 +79,6 @@
             :class="`text-white ${
               currentRoute === 'transfuse' ? 'active' : ''
             }`"
-            @click="handleChangeRoute('transfuse')"
             >输液管理</router-link
           >
         </li>
@@ -90,7 +86,6 @@
           <router-link
             :to="{ name: 'ward' }"
             :class="`text-white ${currentRoute === 'ward' ? 'active' : ''}`"
-            @click="handleChangeRoute('ward')"
             >病区一览</router-link
           >
         </li>
@@ -98,7 +93,6 @@
           <router-link
             :to="{ name: 'overview' }"
             :class="`text-white ${currentRoute === 'overview' ? 'active' : ''}`"
-            @click="handleChangeRoute('overview')"
             >今日概况</router-link
           >
         </li>
@@ -127,16 +121,12 @@
 
 <script setup lang="ts">
 import { getCurrentLocaleString } from '@/utils/timeHelper';
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, type Ref, computed, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const currentDateTime = ref(getCurrentLocaleString());
-const currentRoute = ref(route.name);
-
-const handleChangeRoute = (value: string) => {
-  currentRoute.value = value;
-};
+const currentDateTime: Ref<string> = ref(getCurrentLocaleString());
+const currentRoute = computed<string>(() => route.name as string);
 
 let timeInterval: NodeJS.Timeout;
 onMounted(() => {

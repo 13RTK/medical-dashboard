@@ -19,5 +19,5 @@ const props = defineProps<{
   currentItem: String;
 }>();
 
-const { basicItemData, isLoading } = useBasicItem(props.currentItem as string);
+const { basicItemData, isLoading } = useBasicItem();
 </script>
