@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-[#63C7B3]">
+  <header class="navbar bg-[#63C7B3]">
     <!-- Head part -->
     <div class="navbar-start w-fit">
       <!-- dropdown when the width less then the lg -->
@@ -50,7 +50,7 @@
       </div>
       <a class="btn btn-ghost text-xl text-white">福康护理白板</a>
     </div>
-    <div class="navbar-center hidden lg:flex mx-auto">
+    <nav class="navbar-center hidden lg:flex mx-auto">
       <ul class="menu menu-horizontal px-1">
         <li>
           <router-link
@@ -98,7 +98,7 @@
           >
         </li>
       </ul>
-    </div>
+    </nav>
 
     <div class="navbar-end w-fit inline-block ml-auto">
       <a class="btn bg-[#63C7B3]">
@@ -117,7 +117,7 @@
     <div class="navbar-end sm:inline-block hidden text-white w-64 mx-2">
       {{ currentDateTime }}
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">

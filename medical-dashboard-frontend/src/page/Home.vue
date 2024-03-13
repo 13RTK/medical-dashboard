@@ -1,6 +1,6 @@
 <template>
-  <main class="grid lg:grid-cols-12 gap-2 m-1">
-    <div class="lg:col-span-10">
+  <main class="grid xl:grid-cols-12 gap-2 m-1">
+    <div class="xl:col-span-10">
       <!-- Ward info -->
       <WardTable
         class="lg:border-solid lg:border-[F1F1F1] lg:border-r-8 lg:border-b-8 h-fit"
@@ -16,9 +16,7 @@
     </div>
 
     <!-- Daily info -->
-    <aside class="lg:col-span-2">
-      <DailyTable />
-    </aside>
+    <DailyTable class="xl:col-span-2" />
   </main>
 
   <Teleport to="body">

@@ -7,11 +7,11 @@
         </button>
       </form>
       <!-- Title -->
-      <h3 class="font-bold text-lg text-center text-green-500">
+      <h3 class="font-bold text-lg text-center text-green-500 my-auto">
         {{ currentHead }}
       </h3>
       <!-- Content -->
-      <BasicModalContent />
+      <BasicModalContent :wardItems="wardItems" />
     </div>
   </dialog>
 </template>

@@ -1,8 +1,10 @@
 <template>
-  <DoctorInfo />
-  <NurseInfo />
-  <WardInfo />
-  <StuffInfo />
+  <aside>
+    <DoctorInfo />
+    <NurseInfo />
+    <WardInfo />
+    <StuffInfo />
+  </aside>
 </template>
 
 <script setup lang="ts">
