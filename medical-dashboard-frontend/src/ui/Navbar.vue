@@ -1,5 +1,6 @@
 <template>
   <div class="navbar bg-[#63C7B3]">
+    <!-- Head part -->
     <div class="navbar-start w-fit">
       <!-- dropdown when the width less then the lg -->
       <div class="dropdown">
@@ -99,9 +100,6 @@
       </ul>
     </div>
 
-    <div class="navbar-end sm:inline-block hidden text-white w-fit ml-auto">
-      {{ currentDateTime }}
-    </div>
     <div class="navbar-end w-fit inline-block ml-auto">
       <a class="btn bg-[#63C7B3]">
         <svg
@@ -116,6 +114,9 @@
         </svg>
       </a>
     </div>
+    <div class="navbar-end sm:inline-block hidden text-white w-64 mx-2">
+      {{ currentDateTime }}
+    </div>
   </div>
 </template>
 
@@ -128,7 +129,7 @@ const route = useRoute();
 const currentDateTime: Ref<string> = ref(getCurrentLocaleString());
 const currentRoute = computed<string>(() => route.name as string);
 
-let timeInterval: NodeJS.Timeout;
+let timeInterval: number;
 onMounted(() => {
   timeInterval = setInterval(() => {
     currentDateTime.value = getCurrentLocaleString();

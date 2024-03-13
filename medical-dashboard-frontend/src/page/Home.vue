@@ -20,10 +20,15 @@
       <DailyTable />
     </div>
   </main>
+
+  <Teleport to="body">
+    <BasicModal />
+  </Teleport>
 </template>
 
 <script setup lang="ts">
 import WardTable from '@/features/home/wardinfo/WardTable.vue';
 import DailyTable from '@/features/home/dailyinfo/DailyTable.vue';
 import OverviewTable from '@/features/home/overview/OverviewTable.vue';
+import BasicModal from '@/features/home/ui/BasicModal.vue';
 </script>

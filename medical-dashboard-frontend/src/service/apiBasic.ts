@@ -1,6 +1,6 @@
 import type BasicInfo from '@/types/BasicInfo';
 
-import { getFakeBasicItem } from '@/utils/fakeHelper';
+import { getFakeBasicInfo } from '@/utils/fakeHelper';
 
 const demo = [
   {
@@ -100,8 +100,9 @@ const demo = [
   },
 ];
 
-export const getBasicItems = (item: string): BasicInfo => {
-  const fakeBasicItem = getFakeBasicItem(item);
+// TODO: Fetch from /home?basicInfo={value}
+export const getBasicInfo = (item: string): BasicInfo => {
+  const fakeBasicItem = getFakeBasicInfo(item);
 
   console.log(fakeBasicItem);
 

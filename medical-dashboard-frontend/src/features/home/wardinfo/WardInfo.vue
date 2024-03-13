@@ -1,23 +1,27 @@
 <template>
-  <div>
-    <table class="table table-pin-rows">
-      <Spinner v-if="isLoading || !basicItemData" />
-      <tbody v-else="!isLoading">
-        <WardInfoRow :wardInfos="basicItemData" />
+  <div v-if="isLoading || !basicInfo">
+    <div class="cols-span-1"></div>
+    <Spinner class="cols-span-1" />
+    <div class="cols-span-1"></div>
+  </div>
+  <div v-else>
+    <table class="table table-pin-rows col-span-full">
+      <tbody>
+        <WardInfoList
+          v-for="wardItem in basicInfo.basicItems"
+          :key="wardItem.head"
+          :wardItem="wardItem"
+        />
       </tbody>
     </table>
   </div>
 </template>
 
 <script setup lang="ts">
-import WardInfoRow from './WardInfoRow.vue';
-
 import Spinner from '@/ui/Spinner.vue';
-import { useBasicItem } from './useBasicItem';
+import WardInfoList from './WardInfoList.vue';
 
-const props = defineProps<{
-  currentItem: String;
-}>();
+import { useBasicInfo } from './useBasicInfo';
 
-const { basicItemData, isLoading } = useBasicItem();
+const { basicInfo, isLoading } = useBasicInfo();
 </script>

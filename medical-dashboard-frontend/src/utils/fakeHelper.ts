@@ -44,7 +44,7 @@ const getFakeWard = (): { wardNum: number; firstName: string }[] => {
   });
 };
 
-export const getFakeBasicItem = (item: string): BasicInfo => {
+export const getFakeBasicInfo = (item: string): BasicInfo => {
   const dataArr: BasicItem[] = [
     { head: '2/日', wards: getFakeWard() },
     { head: '3/日', wards: getFakeWard() },

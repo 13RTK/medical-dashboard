@@ -3,14 +3,11 @@
     <ul
       class="menu w-fit menu-vertical rounded-box col-span-1 inline-block my-auto"
     >
-      <WardItem
-        :items="items"
-        :currentItem="currentItem"
-        :onChangeItem="handleChangeItem"
-      />
+      <WardItem :items="items" />
     </ul>
 
-    <WardInfo class="col-span-11 inline-block" :currentItem="currentItem" />
+    <!-- <WardInfo class="col-span-11 inline-block" /> -->
+    <WardInfo class="col-span-11 grid grid-cols-3" />
   </div>
 </template>
 
@@ -23,27 +20,18 @@ import WardInfo from './WardInfo.vue';
 
 const route = useRoute();
 const items: Ref<string[]> = ref(['血压', '血糖', '雾化', '体温']);
-const currentItem: Ref<string> = ref(
-  (route.query.basicItem as string) || items.value[0]
-);
+
 const router = useRouter();
 
-function handleChangeItem(newItem: string): void {
-  currentItem.value = newItem;
-
-  router.push({
-    name: 'home',
-    query: {
-      basicItem: newItem,
-    },
-  });
-}
-
 onMounted(() => {
+  if (route.query.basicInfo) {
+    return;
+  }
+
   router.push({
     name: 'home',
     query: {
-      basicItem: items.value[0],
+      basicInfo: items.value[0],
     },
   });
 });
