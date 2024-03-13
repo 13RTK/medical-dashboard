@@ -24,15 +24,17 @@
     <!-- Pagination button -->
     <td class="join inline-block col-end-2" v-show="wardItem.wards.length > 8">
       <button
-        class="join-item btn btn-sm"
+        class="join-item btn lg:btn-sm btn-xs"
         @click="handlePrevPage"
         :disabled="page === 1"
       >
         <
       </button>
-      <button class="join-item btn btn-sm" disabled>{{ page }}</button>
+      <button class="join-item btn lg:btn-sm btn-xs" disabled>
+        {{ page }}
+      </button>
       <button
-        class="join-item btn btn-sm"
+        class="join-item btn lg:btn-sm btn-xs"
         @click="handleNextPage"
         :disabled="page === pageCount"
       >

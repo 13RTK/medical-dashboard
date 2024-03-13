@@ -1,5 +1,5 @@
 <template>
-  <main class="grid sm:grid-cols-12 gap-2 m-1">
+  <main class="grid lg:grid-cols-12 gap-2 m-1">
     <div class="lg:col-span-10">
       <!-- Ward info -->
       <WardTable
@@ -16,9 +16,9 @@
     </div>
 
     <!-- Daily info -->
-    <div class="lg:col-span-2">
+    <side class="lg:col-span-2">
       <DailyTable />
-    </div>
+    </side>
   </main>
 
   <Teleport to="body">
