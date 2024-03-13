@@ -16,9 +16,9 @@
     </div>
 
     <!-- Daily info -->
-    <side class="lg:col-span-2">
+    <aside class="lg:col-span-2">
       <DailyTable />
-    </side>
+    </aside>
   </main>
 
   <Teleport to="body">
