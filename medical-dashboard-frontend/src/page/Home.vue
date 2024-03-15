@@ -6,15 +6,16 @@
         class="lg:border-solid lg:border-[F1F1F1] lg:border-r-8 lg:border-b-8 h-fit"
       />
 
-      <!-- Overview info -->
       <div class="grid-cols-2 grid">
-        <div class="col-span-1">
-          <OverviewTable class="border-solid border-gray-200 border-r-4" />
+        <!-- Overview info -->
+        <div class="col-span-1 border-solid border-gray-200 border-r-4">
+          <OverviewTable />
         </div>
+        <!-- Options info -->
         <div
-          class="bg-blue-400 col-span-1 border-solid border-gray-200 border-l-4 border-r-8"
+          class="col-span-1 border-solid border-gray-200 border-l-4 border-r-8"
         >
-          options
+          <OptionList />
         </div>
       </div>
     </div>
@@ -33,4 +34,5 @@ import WardTable from '@/features/home/wardinfo/WardTable.vue';
 import DailyTable from '@/features/home/dailyinfo/DailyTable.vue';
 import OverviewTable from '@/features/home/overview/OverviewTable.vue';
 import BasicModal from '@/features/home/ui/BasicModal.vue';
+import OptionList from '@/features/home/options/OptionList.vue';
 </script>

@@ -1,6 +1,7 @@
 import type BasicInfo from '@/types/BasicInfo';
+import type BasicItem from '@/types/BasicItem';
 
-import { getFakeBasicInfo } from '@/utils/fakeHelper';
+import { getFakeBasicInfo, getFakeItem } from '@/utils/fakeHelper';
 
 const demo = [
   {
@@ -107,4 +108,11 @@ export const getBasicInfo = (item: string): BasicInfo => {
   console.log(fakeBasicItem);
 
   return fakeBasicItem;
+};
+
+// TODO: Fetch from /home?optionItem={value}
+export const getOptionItem = (option: string): BasicItem => {
+  const fakeItem = getFakeItem(option);
+
+  return fakeItem;
 };

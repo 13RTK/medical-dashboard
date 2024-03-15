@@ -36,9 +36,14 @@ const router = useRouter();
 const currentHead = computed(() => {
   const basicInfo = route.query.basicInfo as string;
   const overviewInfo = route.query.overviewInfo as string;
+  const optionsInfo = route.query.options as string;
 
   if (overviewInfo) {
-    return `${overviewInfo}`;
+    return overviewInfo;
+  }
+
+  if (optionsInfo) {
+    return optionsInfo;
   }
 
   return `${basicInfo}(${title.value})`;

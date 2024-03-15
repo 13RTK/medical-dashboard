@@ -60,36 +60,43 @@ export const getFakeBasicInfo = (item: string): BasicInfo => {
   };
 };
 
-const getFakeOverviewItem = (head: string): BasicItem => {
+export const getFakeItem = (head: string): BasicItem => {
   return new BasicItem(head, getFakeWard());
 };
 
 export const getFakeOverviewItems = (): BasicItem[] => {
-  return [
-    getFakeOverviewItem('床位总数'),
-    getFakeOverviewItem('病人总数'),
-    getFakeOverviewItem('今日入院'),
-    getFakeOverviewItem('空床'),
-    getFakeOverviewItem('病危'),
-    getFakeOverviewItem('病重'),
-    getFakeOverviewItem('今日手术'),
-    getFakeOverviewItem('明日手术'),
-    getFakeOverviewItem('特级护理'),
-    getFakeOverviewItem('床位总数'),
+  const demo = [
+    getFakeItem('床位总数'),
+    getFakeItem('病人总数'),
+    getFakeItem('今日入院'),
+    getFakeItem('空床'),
+    getFakeItem('病危'),
+    getFakeItem('病重'),
+    getFakeItem('今日手术'),
+    getFakeItem('明日手术'),
+    getFakeItem('特级护理'),
+    getFakeItem('床位总数'),
   ];
+  console.log('fake overview items', demo);
+
+  return demo;
 };
 
 export const getFakeOptionItems = (): BasicItem[] => {
-  return [
-    getFakeOverviewItem('皮下注射'),
-    getFakeOverviewItem('吸氧'),
-    getFakeOverviewItem('24H出入量'),
-    getFakeOverviewItem('记24H尿量'),
-    getFakeOverviewItem('留置导尿'),
-    getFakeOverviewItem('留置胃管'),
-    getFakeOverviewItem('引流管护理'),
-    getFakeOverviewItem('动静脉置管'),
-    getFakeOverviewItem('胰岛素注射'),
-    getFakeOverviewItem('心电监护'),
+  const demo = [
+    getFakeItem('皮下注射'),
+    getFakeItem('吸氧'),
+    getFakeItem('24H出入量'),
+    getFakeItem('记24H尿量'),
+    getFakeItem('留置导尿'),
+    getFakeItem('留置胃管'),
+    getFakeItem('引流管护理'),
+    getFakeItem('动静脉置管'),
+    getFakeItem('胰岛素注射'),
+    getFakeItem('心电监护'),
   ];
+
+  console.log('fake option items', demo);
+
+  return demo;
 };

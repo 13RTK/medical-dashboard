@@ -1,12 +1,12 @@
 <template>
   <Spinner v-if="isLoading" />
-  <ul v-else>
+  <table v-else>
     <OverviewItem
       v-for="overviewItem in overviewItems"
       :key="overviewItem.head"
       :overviewItem="overviewItem"
     />
-  </ul>
+  </table>
 </template>
 
 <script setup>

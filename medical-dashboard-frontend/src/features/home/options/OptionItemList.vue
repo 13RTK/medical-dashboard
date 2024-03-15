@@ -21,7 +21,7 @@
     <!-- place hold to maintain the table format -->
     <td
       class="col-span-1"
-      v-for="_idx in pageSize - currentBasicItems.length"
+      v-for="_idx in 9 - currentBasicItems.length"
       v-if="currentBasicItems.length < pageSize"
     ></td>
 
