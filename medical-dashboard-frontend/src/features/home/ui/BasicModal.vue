@@ -2,7 +2,10 @@
   <dialog id="basic_modal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
       <form method="dialog">
-        <button class="btn btn-sl btn-circle btn-ghost absolute right-2 top-2">
+        <button
+          class="btn btn-sl btn-circle btn-ghost absolute right-2 top-2"
+          @click="closeModal"
+        >
           ✕
         </button>
       </form>
@@ -19,7 +22,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import { useBasicModalStore } from '@/stores/basicModal';
 import BasicModalContent from './BasicModalContent.vue';
@@ -28,6 +31,8 @@ const basicModalStore = useBasicModalStore();
 const { title, wardItems } = storeToRefs(basicModalStore);
 
 const route = useRoute();
+const router = useRouter();
+
 const currentHead = computed(() => {
   const basicInfo = route.query.basicInfo as string;
   const overviewInfo = route.query.overviewInfo as string;
@@ -38,4 +43,13 @@ const currentHead = computed(() => {
 
   return `${basicInfo}(${title.value})`;
 });
+
+function closeModal() {
+  router.push({
+    name: route.name!,
+    query: {
+      basicInfo: route.query.basicInfo,
+    },
+  });
+}
 </script>

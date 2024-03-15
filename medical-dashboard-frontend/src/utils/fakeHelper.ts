@@ -78,3 +78,18 @@ export const getFakeOverviewItems = (): BasicItem[] => {
     getFakeOverviewItem('床位总数'),
   ];
 };
+
+export const getFakeOptionItems = (): BasicItem[] => {
+  return [
+    getFakeOverviewItem('皮下注射'),
+    getFakeOverviewItem('吸氧'),
+    getFakeOverviewItem('24H出入量'),
+    getFakeOverviewItem('记24H尿量'),
+    getFakeOverviewItem('留置导尿'),
+    getFakeOverviewItem('留置胃管'),
+    getFakeOverviewItem('引流管护理'),
+    getFakeOverviewItem('动静脉置管'),
+    getFakeOverviewItem('胰岛素注射'),
+    getFakeOverviewItem('心电监护'),
+  ];
+};
