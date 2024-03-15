@@ -18,9 +18,6 @@ export const useBasicModalStore = defineStore('basicModal', () => {
     title: string = 'title',
     wardItems: WardItem[] = []
   ): void {
-    console.log(title);
-    console.log(wardItems);
-
     modifyModalTitle(title);
     modifyWardItems(wardItems);
   }

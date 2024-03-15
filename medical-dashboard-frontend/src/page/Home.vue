@@ -7,11 +7,15 @@
       />
 
       <!-- Overview info -->
-      <div class="bg-red-400 grid-cols-2 grid">
-        <div class="bg-purple-400 col-span-1">
-          <OverviewTable />
+      <div class="grid-cols-2 grid">
+        <div class="col-span-1">
+          <OverviewTable class="border-solid border-gray-200 border-r-4" />
         </div>
-        <div class="bg-blue-400 col-span-1">options</div>
+        <div
+          class="bg-blue-400 col-span-1 border-solid border-gray-200 border-l-4 border-r-8"
+        >
+          options
+        </div>
       </div>
     </div>
 

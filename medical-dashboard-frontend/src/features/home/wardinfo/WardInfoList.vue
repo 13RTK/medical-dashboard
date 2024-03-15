@@ -29,4 +29,3 @@ const {
   BASIC_PAGE_SIZE,
 } = useWardInfo(props.wardItem);
 </script>
-../ui/BasicItemList.vue

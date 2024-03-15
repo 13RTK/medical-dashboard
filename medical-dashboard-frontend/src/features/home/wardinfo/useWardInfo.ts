@@ -3,9 +3,10 @@ import type WardItem from '@/types/WardItem';
 import { getViteConfig } from '@/utils/configHelper';
 import { ref, type Ref, computed } from 'vue';
 
-const BASIC_PAGE_SIZE = Number(getViteConfig('BASIC_SIZE')) || 8;
-
-export const useWardInfo = (wardItem: BasicItem) => {
+export const useWardInfo = (wardItem: BasicItem, pageSize?: number) => {
+  const BASIC_PAGE_SIZE = pageSize
+    ? pageSize
+    : Number(getViteConfig('BASIC_SIZE')) || 8;
   const page: Ref<number> = ref(1);
   const pageCount = computed<number>(() => {
     return Math.ceil(wardItem.wards.length / BASIC_PAGE_SIZE);

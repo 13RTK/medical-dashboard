@@ -12,9 +12,6 @@ export const useBasicInfo = () => {
   const { data: basicInfo, isLoading } = useQuery({
     queryKey: ['basicInfo', basicInfoParam],
     queryFn: () => getFakeBasicInfo(basicInfoParam.value),
-    // queryFn: () => {
-    //   setTimeout(() => getFakeBasicItem(basicInfoParam.value), 500);
-    // },
   });
 
   return { basicInfo, isLoading };

@@ -11,7 +11,7 @@
         {{ currentHead }}
       </h3>
       <!-- Content -->
-      <BasicModalContent :wardItems="wardItems" />
+      <BasicModalContent :wardItems="wardItems" :currentHead="currentHead" />
     </div>
   </dialog>
 </template>
@@ -33,7 +33,7 @@ const currentHead = computed(() => {
   const overviewInfo = route.query.overviewInfo as string;
 
   if (overviewInfo) {
-    return `${overviewInfo}(${title.value})`;
+    return `${overviewInfo}`;
   }
 
   return `${basicInfo}(${title.value})`;

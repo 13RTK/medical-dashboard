@@ -48,7 +48,9 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-xl text-white">福康护理白板</a>
+      <a class="btn btn-ghost text-xl text-white" @click="handleReloadPage"
+        >福康护理白板</a
+      >
     </div>
     <nav class="navbar-center hidden lg:flex mx-auto">
       <ul class="menu menu-horizontal px-1">
@@ -128,6 +130,10 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const currentDateTime: Ref<string> = ref(getCurrentLocaleString());
 const currentRoute = computed<string>(() => route.name as string);
+
+function handleReloadPage() {
+  window.location.reload();
+}
 
 let timeInterval: number;
 onMounted(() => {

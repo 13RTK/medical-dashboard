@@ -1,13 +1,13 @@
 <template>
   <tr
     onclick="basic_modal.showModal()"
-    class="hover:bg-gray-200 cursor-pointer"
-    @click="openBasicModal(wardItem.head, wardItem.wards)"
+    class="hover:bg-gray-200 cursor-pointer col-span-full grid grid-cols-9 border-gray-200 border-solid border-b-2"
+    @click="handleClickModal"
   >
-    <th class="col-span-1 text-green-500">{{ wardItem.head }}</th>
-    <td class="col-span-1">
+    <th class="col-span-2 text-green-500">{{ wardItem.head }}</th>
+    <td class="col-span-2 w-fit">
       总计:
-      <span class="text-green-500">
+      <span class="text-green-500 w-fit">
         {{ wardItem.wards.length }}
       </span>
     </td>
@@ -19,11 +19,15 @@
     </td>
 
     <!-- place hold to maintain the table format -->
-    <td v-for="_idx in pageSize - currentBasicItems.length"></td>
+    <td
+      class="col-span-1"
+      v-for="_idx in pageSize - currentBasicItems.length"
+      v-if="currentBasicItems.length < pageSize"
+    ></td>
 
     <!-- Pagination button -->
     <td
-      class="join inline-block col-end-2 my-auto"
+      class="join inline-block col-span-2 my-auto ml-6"
       v-show="wardItem.wards.length > 8"
     >
       <button
@@ -33,7 +37,7 @@
       >
         <
       </button>
-      <button class="join-item btn xl:btn-sm btn-xs" disabled>
+      <button class="join-item btn xl:btn-sm btn-xs w-2" disabled>
         {{ page }}
       </button>
       <button
@@ -52,8 +56,11 @@ import type BasicItem from '@/types/BasicItem';
 import type WardItem from '@/types/WardItem';
 
 import { useBasicModalStore } from '@/stores/basicModal';
+import { useRoute, useRouter } from 'vue-router';
 
 const { openBasicModal } = useBasicModalStore();
+
+const props = defineProps<BasicItemListProps>();
 
 type BasicItemListProps = {
   page: number;
@@ -66,5 +73,15 @@ type BasicItemListProps = {
   pageSize: number;
 };
 
-defineProps<BasicItemListProps>();
+const router = useRouter();
+const route = useRoute();
+
+function handleClickModal() {
+  router.push({
+    name: 'home',
+    query: { ...route.query, overviewInfo: props.wardItem.head },
+  });
+
+  openBasicModal(props.wardItem.head, props.wardItem.wards);
+}
 </script>

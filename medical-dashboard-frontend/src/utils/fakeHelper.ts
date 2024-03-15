@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
-import type BasicItem from '../types/BasicItem';
+import BasicItem from '../types/BasicItem';
 import type BasicInfo from '../types/BasicInfo';
+import type WardItem from '@/types/WardItem';
 
 function random_chinese_name(): string {
   function random(a: string[], l: number = 0): string {
@@ -32,8 +33,8 @@ const getFakeNumber = (min: number, max: number) => {
   return faker.number.int({ min, max });
 };
 
-const getFakeWard = (): { wardNum: number; firstName: string }[] => {
-  return new Array(getFakeNumber(5, 20)).fill('').map(() => {
+const getFakeWard = (): WardItem[] => {
+  return new Array(getFakeNumber(10, 100)).fill('').map(() => {
     const wardNum: number = getFakeNumber(1, 99);
     const firstName: string = random_chinese_name()[0];
 
@@ -57,4 +58,23 @@ export const getFakeBasicInfo = (item: string): BasicInfo => {
     item,
     basicItems: dataArr,
   };
+};
+
+const getFakeOverviewItem = (head: string): BasicItem => {
+  return new BasicItem(head, getFakeWard());
+};
+
+export const getFakeOverviewItems = (): BasicItem[] => {
+  return [
+    getFakeOverviewItem('床位总数'),
+    getFakeOverviewItem('病人总数'),
+    getFakeOverviewItem('今日入院'),
+    getFakeOverviewItem('空床'),
+    getFakeOverviewItem('病危'),
+    getFakeOverviewItem('病重'),
+    getFakeOverviewItem('今日手术'),
+    getFakeOverviewItem('明日手术'),
+    getFakeOverviewItem('特级护理'),
+    getFakeOverviewItem('床位总数'),
+  ];
 };

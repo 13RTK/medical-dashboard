@@ -1,10 +1,10 @@
 <template>
   <ul class="grid grid-cols-2">
     <li
-      class="cols-span-1 border-solid border-green-400 border-b-2 border-l-2 rounded my-1 hover:bg-gray-300 cursor-pointer"
+      class="cols-span-1 rounded my-1 hover:bg-gray-300 cursor-pointer h-8"
       v-for="wardItem in wardItems"
     >
-      <span class="mr-2 bg-green-500">{{ wardItem.wardNum }}</span>
+      <span class="mr-2">{{ wardItem.wardNum }}</span>
       <span>{{ wardItem.firstName }}</span>
     </li>
   </ul>

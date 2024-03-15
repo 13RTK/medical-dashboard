@@ -6,7 +6,7 @@
       {{ wardItem.wards.length }}
     </span>
   </td>
-  <td class="col-span-1" v-for="currentWard in currentWardInfo">
+  <td class="col-span-1" v-for="currentWard in currentWardItems">
     <span class="text-red-600">
       {{ currentWard.wardNum }}
     </span>
@@ -14,7 +14,7 @@
   </td>
 
   <!-- place hold to maintain the table format -->
-  <td v-for="_idx in 8 - currentWardInfo.length"></td>
+  <td v-for="_idx in 8 - currentWardItems.length"></td>
 
   <!-- Pagination button -->
   <td class="join inline-block col-end-2" v-show="wardItem.wards.length > 8">
@@ -44,6 +44,6 @@ const props = defineProps<{
   wardItem: BasicItem;
 }>();
 
-const { page, pageCount, currentWardInfo, handlePrevPage, handleNextPage } =
+const { page, pageCount, currentWardItems, handlePrevPage, handleNextPage } =
   useWardInfo(props.wardItem);
 </script>
