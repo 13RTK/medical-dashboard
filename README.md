@@ -21,7 +21,7 @@ git clone https://gitee.com/alex_john/medical-dashboard.git
 ### 2. Enter the frontend project folder
 
 ```shell
-cd ./medical-dashboard-frontend
+cd ./medical-dashboard/medical-dashboard-frontend
 ```
 
 ### 3. Install dependencies
