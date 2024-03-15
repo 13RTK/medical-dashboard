@@ -1,0 +1,22 @@
+{
+  "name": "medical-dashboard-test",
+  "module": "index.ts",
+  "type": "module",
+  "script": {
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^20.11.27",
+    "@types/validator": "^13.11.9"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "oracledb": "^6.4.0",
+    "reflect-metadata": "^0.2.1",
+    "sequelize": "^6.37.1",
+    "sequelize-typescript": "^2.1.6"
+  }
+}
