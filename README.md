@@ -12,7 +12,10 @@ The medical dashboard provides the data present and data editor for nurses who n
 
 ```shell
 # github
-git clone https://github.com/medic/medical-dashboard-frontend.git
+git clone https://github.com/13RTK/medical-dashboard.git
+
+# gitee
+git clone https://gitee.com/alex_john/medical-dashboard.git
 ```
 
 ### 2. Enter the frontend project folder
