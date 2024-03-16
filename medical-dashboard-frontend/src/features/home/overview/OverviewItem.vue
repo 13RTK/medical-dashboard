@@ -1,6 +1,5 @@
 <template>
   <OverviewItemList
-    class="grid grid-cols-10"
     :page="page"
     :pageCount="pageCount"
     :currentBasicItems="currentWardItems"

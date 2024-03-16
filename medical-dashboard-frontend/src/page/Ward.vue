@@ -1,3 +1,7 @@
 <template>
-  <div>ward</div>
+  <DevPage />
 </template>
+
+<script setup>
+import DevPage from '@/ui/DevPage.vue';
+</script>
